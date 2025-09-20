@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+// Function to reverse an integer using Call by Value
+void reverseValue(int num) {
+    int reversed = 0;
+    while (num != 0) {
+        reversed = reversed * 10 + num % 10;
+        num /= 10;
+    }
+    cout << "Reversed (Call by Value): " << reversed << endl;
+}
+
+// Function to reverse an integer using Call by Pointer
+void reversePointer(int* num) {
+    int reversed = 0;
+    int temp = *num;
+    while (temp != 0) {
+        reversed = reversed * 10 + temp % 10;
+        temp /= 10;
+    }
+    cout << "Reversed (Call by Pointer): " << reversed << endl;
+}
+
+// Function to reverse an integer using Call by Reference
+void reverseReference(int& num) {
+    int reversed = 0;
+    int temp = num;
+    while (temp != 0) {
+        reversed = reversed * 10 + temp % 10;
+        temp /= 10;
+    }
+    cout << "Reversed (Call by Reference): " << reversed << endl;
+}
+
+int main() {
+    int number;
+
+    // Read an integer from the user
+    cout << "Enter an integer: ";
+    cin >> number;
+
+    // Call the functions to reverse the number
+    reverseValue(number);            // Call by value
+    reversePointer(&number);         // Call by pointer
+    reverseReference(number);        // Call by reference
+
+    return 0;
+}
